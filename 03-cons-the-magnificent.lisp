@@ -36,3 +36,24 @@
              (firsts (cdr l))))))
 
 (firsts '(((five plums) four) (eleven green oranges) ((no) more))) ; ((FIVE PLUMS) ELEVEN (NO))
+
+(defun insertR (new old lat)
+  (cond
+    ((null lat) '())
+    (t (cond
+         ((eq (car lat) old) (cons old
+                                   (cons new
+                                         (cdr lat))))
+         (t (cons (car lat)
+                  (insertR new old (cdr lat))))))))
+
+(defun insertR (new old lat)
+  (cond
+    ((null lat) nil)
+    ((eq old (car lat))
+     (cons old
+           (cons new
+                 (insertR new old (cdr lat)))))
+    (t (cons (car lat) (insertR new old (cdr lat))))))
+
+(insertR 'jalapeno 'and '(tacos tamales and salsa)) ; (TACOS TAMALES AND JALAPENO SALSA)
