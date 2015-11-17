@@ -35,25 +35,17 @@
     (t (cons (caar l)
              (firsts (cdr l))))))
 
-(firsts '(((five plums) four) (eleven green oranges) ((no) more))) ; ((FIVE PLUMS) ELEVEN (NO))
-
-(defun insertR (new old lat)
-  (cond
-    ((null lat) '())
-    (t (cond
-         ((eq (car lat) old) (cons old
-                                   (cons new
-                                         (cdr lat))))
-         (t (cons (car lat)
-                  (insertR new old (cdr lat))))))))
+(firsts '(((five plums) four) (eleven green oranges) ((no) more)))
+; ((FIVE PLUMS) ELEVEN (NO))
 
 (defun insertR (new old lat)
   (cond
     ((null lat) nil)
-    ((eq old (car lat))
-     (cons old
-           (cons new
-                 (insertR new old (cdr lat)))))
+    ((eq old (car lat)) (cons old (cons new (cdr lat))))
     (t (cons (car lat) (insertR new old (cdr lat))))))
 
-(insertR 'jalapeno 'and '(tacos tamales and salsa)) ; (TACOS TAMALES AND JALAPENO SALSA)
+(insertR 'jalapeno 'and '(tacos tamales and salsa))
+; (TACOS TAMALES AND JALAPENO SALSA)
+
+(insertR 'topping 'fudge '(ice cream with fudge for dessert))
+; (ICE CREAM WITH FUDGE TOPPING FOR DESSERT)
