@@ -49,3 +49,12 @@
 
 (insertR 'topping 'fudge '(ice cream with fudge for dessert))
 ; (ICE CREAM WITH FUDGE TOPPING FOR DESSERT)
+
+(defun insertL (new old lat)
+  (cond
+    ((null lat) nil)
+    ((eq old (car lat)) (cons new (cons old (insertL new old (cdr lat)))))
+    (t (cons (car lat) (insertL new old (cdr lat))))))
+
+(insertL 'jalapeno 'and '(tacos tamales and salsa))
+; (TACOS TAMALES JALAPENO AND SALSA)
