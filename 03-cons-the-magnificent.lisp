@@ -12,7 +12,7 @@
 ;;; Use cons to build lists.
 
 (defun rember (a lat)
-  ;; remove the first member that is equal
+  ;; remove the first member of the list of atoms `lat` that is equal to the atom `a`
   (cond
     ((null lat) nil) ; or ((null lat) '())
     ((eq a (car lat)) (cdr lat))
@@ -38,6 +38,10 @@
 (firsts '(((five plums) four) (eleven green oranges) ((no) more)))
 ; ((FIVE PLUMS) ELEVEN (NO))
 
+
+;;; The function `insertR` takes 3 args, 2 atoms and a list, and creates a new
+;;; list with the 'new' inserted to the right of first instance of `old`.
+
 (defun insertR (new old lat)
   (cond
     ((null lat) nil)
@@ -49,6 +53,10 @@
 
 (insertR 'topping 'fudge '(ice cream with fudge for dessert))
 ; (ICE CREAM WITH FUDGE TOPPING FOR DESSERT)
+
+
+;;; The function `insertL` takes 3 args, 2 atoms and a list, and creates a new
+;;; list with the 'new' inserted to the left before the first instance of `old`.
 
 (defun insertL (new old lat)
   (cond
