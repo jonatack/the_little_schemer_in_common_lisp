@@ -53,7 +53,7 @@
 (defun insertL (new old lat)
   (cond
     ((null lat) nil)
-    ((eq old (car lat)) (cons new (cons old (insertL new old (cdr lat)))))
+    ((eq old (car lat)) (cons new lat))
     (t (cons (car lat) (insertL new old (cdr lat))))))
 
 (insertL 'jalapeno 'and '(tacos tamales and salsa))
