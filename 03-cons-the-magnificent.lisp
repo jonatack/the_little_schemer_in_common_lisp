@@ -66,3 +66,31 @@
 
 (insertL 'jalapeno 'and '(tacos tamales and salsa))
 ; (TACOS TAMALES JALAPENO AND SALSA)
+
+
+;;; The function `subst` takes 3 args, 2 atoms and a list, and creates a new
+;;; list with the first instance of `old` in the list replaced by `new`.
+;;; `subst` is an existing function in Common Lisp (CLTL2 Section 15.4, p.424)
+;;; so we must use a different name for our simple version, say, `my-subst`:
+
+(defun my-subst (new old lat)
+  (cond
+    ((null lat) nil)
+    ((eq old (car lat)) (cons new (cdr lat)))
+    (t (cons (car lat) (my-subst new old (cdr lat))))))
+
+(my-subst 'topping 'fudge '(ice cream with fudge for dessert))
+; (ICE CREAM WITH TOPPING FOR DESSERT)
+
+(subst 'topping 'fudge '(ice cream with fudge for dessert))
+; (ICE CREAM WITH TOPPING FOR DESSERT)
+
+; The 2 functions are not equivalent with multiple instances of `old` in `lat`:
+; `subst` replaces all instances, `my-subst` only replaces the first instance.
+
+(my-subst 'topping 'fudge '(ice cream with fudge and fudge for dessert))
+; (ICE CREAM WITH TOPPING AND FUDGE FOR DESSERT)
+
+(subst 'topping 'fudge '(ice cream with fudge and fudge for dessert))
+; (ICE CREAM WITH TOPPING AND TOPPING FOR DESSERT)
+
