@@ -15,7 +15,7 @@
   ;; remove the first member of the list of atoms `lat` that is equal to the atom `a`
   (cond
     ((null lat) nil) ; or ((null lat) '())
-    ((eq a (car lat)) (cdr lat))
+    ((eql a (car lat)) (cdr lat))
     (t (cons (car lat)
              (rember a (cdr lat))))))
 
@@ -45,7 +45,7 @@
 (defun insertR (new old lat)
   (cond
     ((null lat) nil)
-    ((eq old (car lat)) (cons old (cons new (cdr lat))))
+    ((eql old (car lat)) (cons old (cons new (cdr lat))))
     (t (cons (car lat) (insertR new old (cdr lat))))))
 
 (insertR 'jalapeno 'and '(tacos tamales and salsa))
@@ -61,7 +61,7 @@
 (defun insertL (new old lat)
   (cond
     ((null lat) nil)
-    ((eq old (car lat)) (cons new lat))
+    ((eql old (car lat)) (cons new lat))
     (t (cons (car lat) (insertL new old (cdr lat))))))
 
 (insertL 'jalapeno 'and '(tacos tamales and salsa))
@@ -76,7 +76,7 @@
 (defun my-subst (new old lat)
   (cond
     ((null lat) nil)
-    ((eq old (car lat)) (cons new (cdr lat)))
+    ((eql old (car lat)) (cons new (cdr lat)))
     (t (cons (car lat) (my-subst new old (cdr lat))))))
 
 (my-subst 'topping 'fudge '(ice cream with fudge for dessert))

@@ -27,7 +27,7 @@
 (defun member? (a lat)
   (cond
     ((null lat) nil)
-    (t (or (eq a (car lat))
+    (t (or (eql a (car lat))
            (member? a (cdr lat))))))
 
 (member?  'meat '(mashed potatoes and meat gravy)) ;t
