@@ -33,3 +33,7 @@
 (memberp  'meat '(mashed potatoes and meat gravy)) ;t
 (memberp  'meat '(mashed potatoes and egg gravy)) ;nil
 (memberp  'meat '(mashed potatoes and (meat egg) gravy)) ;nil
+
+;;; CL provides the `member` function which returns the list from the element
+;;; onward, or nil if none found.
+(member  'meat '(mashed potatoes and meat gravy)) ; (MEAT GRAVY)
