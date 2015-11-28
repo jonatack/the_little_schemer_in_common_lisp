@@ -14,7 +14,7 @@
 (defun rember (a lat)
   ;; remove the first member of the list of atoms `lat` that is equal to the atom `a`
   (cond
-    ((null lat) nil) ; or ((null lat) '())
+    ((null lat) nil)
     ((eql a (car lat)) (cdr lat))
     (t (cons (car lat)
              (rember a (cdr lat))))))
@@ -31,7 +31,7 @@
 
 (defun firsts (l)
   (cond
-    ((null l) nil) ; or ((null l) '())
+    ((null l) nil)
     (t (cons (caar l)
              (firsts (cdr l))))))
 
