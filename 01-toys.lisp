@@ -7,7 +7,7 @@
 
 ;;; An atom is a string of characters.
 
-(defun atom? (x)
+(defun atomp (x)
   (not (listp x)))
 
 ;;; A list is a collection of S-expressions enclosed by parentheses.
