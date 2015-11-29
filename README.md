@@ -7,7 +7,7 @@ While working through "The Little Schemer", I wanted to do the code exercises in
 
 1. The First Commandment
 
-    When recurring on a list of atoms, *lat*, ask two questions about it: (*null lat*) and **t**.
+    When recurring on a list of atoms, *lat*, ask two questions about it: (*null lat*) and **t** (else).
     When recurring on a number, *n*, ask two questions about it: (*zerop n*) and **t**.
     When recurring on a list of S-expressions, *l*, ask three questions about it: (*null l*), (*atom* (*car l*)), and **t**.
 

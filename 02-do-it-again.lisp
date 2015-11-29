@@ -1,10 +1,6 @@
 ;;;; Chapter 2 of The Little Schemer:
 ;;;; Do It, Do It Again, and Again, and Again ...
 
-;;; primitives: car cdr cons null atom eq
-
-;;; `cond` returns nil, `t` is true, `nil` is false
-
 (in-package :cl-user)
 (defpackage the_little_schemer_in_common_lisp.02-do-it-again
   (:use :cl)
@@ -12,8 +8,14 @@
            :memberp))
 (in-package :the_little_schemer_in_common_lisp.02-do-it-again)
 
+
 ;;; The First Commandment (preliminary)
 ;;; Always ask null as the first question in expressing any function.
+
+;;; primitives: car cdr cons null atom eq
+
+;;; `cond` returns nil, `t` is true, `nil` is false
+
 
 (defun latp (l)
   (cond
@@ -23,6 +25,7 @@
 
 (latp '(bacon and eggs))  ;t
 (latp '(bacon (switch or eggs)))  ;nil
+
 
 (defun memberp (a lat)
   (cond
