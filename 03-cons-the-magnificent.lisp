@@ -20,7 +20,7 @@
 
 
 
-;;; The function `rember` takes 2 args (an atom and a list) and makes a new
+;;; The function `rember` takes 2 args (an atom and a list) and builds a new
 ;;; list without the first occurrence of the atom found in the old list.
 
 (defun rember (a lat)
@@ -49,7 +49,7 @@
 
 
 
-;;; The function `insertR` takes 3 args (2 atoms and a list) and creates a new
+;;; The function `insertR` takes 3 args (2 atoms and a list) and builds a new
 ;;; list with the new atom inserted after the first occurrence of the old atom.
 
 (defun insertR (new old lat)
@@ -68,7 +68,7 @@
 
 
 
-;;; The function `insertL` takes 3 args (2 atoms and a list) and creates a new
+;;; The function `insertL` takes 3 args (2 atoms and a list) and builds a new
 ;;; list with the new atom inserted before the first occurrence of the old atom.
 
 (defun insertL (new old lat)
@@ -84,7 +84,7 @@
 
 
 
-;;; The function `subst` takes 3 args, 2 atoms and a list, and creates a new
+;;; The function `subst` takes 3 args, 2 atoms and a list, and builds a new
 ;;; list with the first occurrence of `old` in the list replaced by `new`.
 
 ;;; `subst` is an existing function in Common Lisp (CLTL2 Section 15.4, p.424)
